@@ -8,6 +8,25 @@ import "slick-carousel/slick/slick-theme.css";
 const Projects = () => {
   const projectList = [
     {
+      title: "BeautyCo (Graduation Project)",
+      description: "A mobile-first cosmetics review platform built by a team of 4.",
+      images:  [  // 👈 Birden fazla ekran
+        "/images/ecommerce-1.png",
+        "/images/ecommerce-2.png",
+        "/images/ecommerce-3.png"
+      ],
+      technologies: ["Flutter", "Flask", "PostgreSQL", "JWT"],
+      features: [
+        "Login / Sign Up screen",
+        "Home, Search and Create Post screens",
+        "Product Detail with reviews and ratings",
+        "User profile with post history",
+        "Backend API with Postman testing",
+        "Collaborative Git & team planning",
+      ],
+      github: "https://github.com/Ruyaguloglu/BeautyCo-API#readme",
+    },
+    {
       title: "Snake Game (Python)",
       description: "A classic snake game built using Python's Tkinter library.",
       image: "/images/snake.png",
@@ -84,21 +103,7 @@ const Projects = () => {
       ],
       github: "https://github.com/Ruyaguloglu/TRAVEL-STORY-MERN#readme",
     },
-    {
-      title: "BeautyCo (Graduation Project)",
-      description: "A mobile-first cosmetics review platform built by a team of 4.",
-      image: "/images/beautyco.png",
-      technologies: ["Flutter", "Flask", "PostgreSQL", "JWT"],
-      features: [
-        "Login / Sign Up screen",
-        "Home, Search and Create Post screens",
-        "Product Detail with reviews and ratings",
-        "User profile with post history",
-        "Backend API with Postman testing",
-        "Collaborative Git & team planning",
-      ],
-      github: "https://github.com/Ruyaguloglu/BeautyCo-API#readme",
-    },
+    
   ];
 
   const settings = {
@@ -124,48 +129,68 @@ const Projects = () => {
         <h2 className="text-3xl font-bold text-center mb-10">Projects</h2>
 
         <Slider {...settings}>
-          {projectList.map((project, index) => (
-            <div key={index}>
-              <div className="bg-zinc-900 shadow-md rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start">
+  {projectList.map((project, index) => (
+    <div key={index}>
+      <div className="bg-zinc-900 shadow-md rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start">
+        
+        {/* 👇 Görsel kısmı (tek ya da çoklu) */}
+        <div className="w-full md:w-1/2">
+          {project.images ? (
+            <Slider {...settings}>
+              {project.images.map((imgPath, i) => (
                 <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full md:w-1/2 rounded-lg object-cover shadow-md"
+                  key={i}
+                  src={imgPath}
+                  alt={`${project.title} screen ${i + 1}`}
+                  className="w-full max-h-[400px] object-contain rounded-lg shadow-md"
                 />
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                  <p className="text-gray-300 mt-2 text-sm">{project.description}</p>
+              ))}
+            </Slider>
+          ) : (
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full max-h-[400px] object-contain rounded-lg shadow-md"
+            />
+          )}
+        </div>
 
-                  <ul className="list-disc list-inside mt-3 text-gray-400 text-sm space-y-1">
-                    {project.features.map((feature, i) => (
-                      <li key={i}>{feature}</li>
-                    ))}
-                  </ul>
+        {/* 👇 Açıklama kısmı */}
+        <div className="flex-1">
+          <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+          <p className="text-gray-300 mt-2 text-sm">{project.description}</p>
 
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {project.technologies.map((tech, i) => (
-                      <span
-                        key={i}
-                        className="bg-blue-900 text-blue-200 px-3 py-1 rounded-full text-xs"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+          <ul className="list-disc list-inside mt-3 text-gray-400 text-sm space-y-1">
+            {project.features.map((feature, i) => (
+              <li key={i}>{feature}</li>
+            ))}
+          </ul>
 
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-                  >
-                    <FaGithub /> View GitHub README
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </Slider>
+          <div className="flex flex-wrap gap-2 mt-4">
+            {project.technologies.map((tech, i) => (
+              <span
+                key={i}
+                className="bg-blue-900 text-blue-200 px-3 py-1 rounded-full text-xs"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+          >
+            <FaGithub /> View GitHub README
+          </a>
+        </div>
+      </div>
+    </div>
+  ))}
+</Slider>
+
       </div>
     </motion.section>
   );
