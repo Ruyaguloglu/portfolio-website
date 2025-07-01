@@ -7,7 +7,7 @@ const Summary = () => {
   return (
     <motion.section
       id="summary"
-      className="min-h-screen flex justify-center items-center bg-black text-white pt-32 md:pt-24  px-4"
+      className="min-h-screen flex justify-center items-center bg-black text-white pt-44 md:pt-24  px-4"
       initial={{ opacity: 0, y: -40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
