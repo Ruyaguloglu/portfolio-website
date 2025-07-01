@@ -34,5 +34,21 @@
   }
   to {
     transform: rotate(360deg);
-  }
+  }.section {
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #555;
+  line-height: 1.6;
+}
+
 }
