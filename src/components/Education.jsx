@@ -5,26 +5,26 @@ const Education = () => {
   return (
     <motion.section
       id="education"
-      className="bg-black text-white px-4 py-16"
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
+      className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat px-6 md:px-20 py-20 text-[#001c55]"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Education</h2>
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl font-extrabold mb-12 tracking-wide"> Education</h2>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="bg-white rounded-2xl shadow-xl p-8 text-left border-l-4 border-[#3f69c7]"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-zinc-900 p-6 rounded-xl shadow-md"
         >
-          <h3 className="text-xl font-semibold text-white">Computer Engineering - Beykent University</h3>
-          <p className="text-sm text-gray-400 mt-1">Graduation Date: 25 June 2025</p>
-          <p className="text-sm mt-3 text-gray-300">
-            <span className="font-semibold text-white">Relevant Courses:</span> Data Structures, Algorithms, Web Development, Machine Learning
+          <h3 className="text-2xl font-bold text-[#1a3fa3]">Computer Engineering - Beykent University</h3>
+          <p className="text-sm text-gray-600 mt-1 italic">Graduation Date: 25 June 2025</p>
+          <p className="text-md mt-4 text-gray-800 leading-relaxed">
+            <span className="font-semibold text-[#1d3a78]">Relevant Courses:</span> Data Structures, Algorithms, Web Development, Machine Learning
           </p>
         </motion.div>
       </div>

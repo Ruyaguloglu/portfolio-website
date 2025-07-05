@@ -33,7 +33,7 @@ const Summary = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
         >
           <span className="text-gray-400">Hello! I'm</span><br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">Rüya Güloğlu</span><br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500"></span><br />
           <span className="text-gray-400">I do code and</span>{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500">
             create impact!
