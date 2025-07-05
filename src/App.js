@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Summary from './components/Summary';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
