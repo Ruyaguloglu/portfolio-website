@@ -1,10 +1,13 @@
 import { createContext, useState, useEffect } from "react";
 
+// 1. Context oluştur
 export const ThemeContext = createContext();
 
+// 2. Provider bileşeni
 export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme ? savedTheme === "dark" : true; // ✅ Varsayılan dark mode
   });
 
   useEffect(() => {
