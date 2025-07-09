@@ -1,34 +1,50 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
+
+const educationData = [
+  {
+    title: "Bachelor of Computer Engineering",
+    institution: "Istanbul Beykent University",
+    date: "2021- 2025",
+    description: "Focused on software development, data structures, machine learning and AI-related subjects. Participated in various group projects and internships.",
+  },
+];
 
 const Education = () => {
   return (
-    <motion.section
+    <section
       id="education"
-      className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat px-6 md:px-20 py-20 text-[#001c55]"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
-      viewport={{ once: true }}
+      className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white px-6 py-20 flex flex-col items-center"
     >
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-extrabold mb-12 tracking-wide"> Education</h2>
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl font-bold mb-12 text-purple-300"
+      >
+        Education
+      </motion.h2>
 
-        <motion.div
-          className="bg-white rounded-2xl shadow-xl p-8 text-left border-l-4 border-[#3f69c7]"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold text-[#1a3fa3]">Computer Engineering - Beykent University</h3>
-          <p className="text-sm text-gray-600 mt-1 italic">Graduation Date: 25 June 2025</p>
-          <p className="text-md mt-4 text-gray-800 leading-relaxed">
-            <span className="font-semibold text-[#1d3a78]">Relevant Courses:</span> Data Structures, Algorithms, Web Development, Machine Learning
-          </p>
-        </motion.div>
+      <div className="w-full max-w-3xl space-y-10">
+        {educationData.map((edu, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.3 }}
+            className="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700"
+          >
+            <h3 className="text-xl font-semibold text-white">
+              {edu.title}
+            </h3>
+            <p className="text-purple-400 font-medium">
+              {edu.institution} • {edu.date}
+            </p>
+            <p className="mt-2 text-gray-300">{edu.description}</p>
+          </motion.div>
+        ))}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

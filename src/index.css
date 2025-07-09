@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'Gallery';
+  src: local('Gallery'), url('./assets/fonts/gallery.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  @apply bg-white text-black dark:bg-black dark:text-white;
+}
+

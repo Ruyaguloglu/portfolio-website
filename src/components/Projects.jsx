@@ -1,198 +1,82 @@
-import React from 'react';
-import Slider from 'react-slick';
-import { FaGithub } from 'react-icons/fa';
-import { motion } from 'framer-motion';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React from "react";
+import Slider from "react-slick";
+
+const projects = [
+  {
+    title: "E-Commerce App",
+    description: "A full-stack e-commerce application with shopping cart, product listing, and payment integration.",
+    image: "/images/ecommerce.png",
+  },
+  {
+    title: "BeautyCo App",
+    description: "Mobile cosmetics review app with Flutter frontend and Flask backend. Includes user reviews, filters, and PostgreSQL integration.",
+    sliderImages: [
+      "/images/ecommerce-1.png",
+      "/images/ecommerce-2.png",
+      "/images/ecommerce-3.png",
+    ]
+  },
+  {
+    title: "Travel Story Website",
+    description: "Personal travel blog web design showcasing locations, experiences, and image galleries.",
+    image: "/images/travel.png",
+  },
+  {
+    title: "YouTube Clone",
+    description: "A simple clone of YouTube using HTML, CSS and responsive layout principles.",
+    image: "/images/youtube.png",
+  },
+  {
+    title: "Python Snake Game",
+    description: "A classic snake game implemented using Python’s Tkinter library, featuring score tracking and colorful grid.",
+    image: "/images/snake.png",
+  },
+];
 
 const Projects = () => {
-  const projectList = [
-    {
-      title: "BeautyCo (Graduation Project)",
-      description: "A mobile-first cosmetics review platform built by a team of 4.",
-      images: [  // 👈 Birden fazla ekran
-        "/images/ecommerce-1.png",
-        "/images/ecommerce-2.png",
-        "/images/ecommerce-3.png"
-      ],
-      technologies: ["Flutter", "Flask", "PostgreSQL", "JWT"],
-      features: [
-        "Login / Sign Up screen",
-        "Home, Search and Create Post screens",
-        "Product Detail with reviews and ratings",
-        "User profile with post history",
-        "Backend API with Postman testing",
-        "Collaborative Git & team planning",
-      ],
-      github: "https://github.com/Ruyaguloglu/BeautyCo-API#readme",
-    },
-    {
-      title: "Snake Game (Python)",
-      description: "A classic snake game built using Python's Tkinter library.",
-      image: "/images/snake.png",
-      technologies: ["Python", "Tkinter"],
-      features: [
-        "Custom UI with canvas",
-        "Score tracking and high score",
-        "Game-over logic",
-        "Modular code structure",
-      ],
-      github: "https://github.com/Ruyaguloglu/SNAKE-GAME#readme",
-    },
-    {
-      title: "YouTube Clone (HTML/CSS)",
-      description: "A frontend-only YouTube clone with responsive design.",
-      image: "/images/youtube.png",
-      technologies: ["HTML", "CSS", "Flexbox"],
-      features: [
-        "Custom navigation bar",
-        "Video cards layout",
-        "Responsive grid system",
-      ],
-      github: "https://github.com/Ruyaguloglu/YoutubeApp#readme",
-    },
-    {
-      title: "E-Commerce App (Android)",
-      description: "An e-commerce Android app built in Java with Firebase.",
-      image: "/images/ecommerce.png",
-      technologies: ["Java", "Android Studio", "Firebase"],
-      features: [
-        "Login & registration",
-        "Product listing UI",
-        "Add-to-cart logic",
-        "Cloud image upload",
-        "Realtime database integration",
-      ],
-      github: "https://github.com/Ruyaguloglu/ProjectApp#readme",
-    },
-    {
-      title: "Voice Recorder (Python)",
-      description: "A simple desktop voice recorder app built in Python.",
-      image: "/images/recorder.png",
-      technologies: ["Python", "sounddevice", "tkinter"],
-      features: [
-        "Real-time audio recording",
-        "WAV file export",
-        "Minimalistic user interface",
-      ],
-      github: "https://github.com/Ruyaguloglu/VoiceRecorder#readme",
-    },
-    {
-      title: "GIF Maker (Python)",
-      description: "Converts image sequences into animated GIFs.",
-      image: "/images/gifmaker.png",
-      technologies: ["Python", "Pillow", "Tkinter"],
-      features: [
-        "Image selection UI",
-        "Adjustable frame duration",
-        "GIF export functionality",
-      ],
-      github: "https://github.com/Ruyaguloglu/GIFmaker#readme",
-    },
-    {
-      title: "Travel Story Platform (MERN)",
-      description: "Full-stack social app for sharing travel stories.",
-      image: "/images/travel.png",
-      technologies: ["MongoDB", "Express", "React", "Node.js", "JWT"],
-      features: [
-        "User authentication with JWT",
-        "Responsive frontend with React Router",
-        "RESTful API design",
-        "Photo & text post creation",
-        "Comment system",
-      ],
-      github: "https://github.com/Ruyaguloglu/TRAVEL-STORY-MERN#readme",
-    },
-
-  ];
-
   const settings = {
     dots: true,
     infinite: true,
-    speed: 600,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
-    autoplay: false,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
   };
 
   return (
-    <motion.section
-      id="projects"
-      className=" text-white relative w-full min-h-screen bg-cover bg-center bg-no-repeat px-6 md:px-20 py-20 text-[#001c55]-4 "
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-10">Projects</h2>
+    <section id="projects" className="bg-gradient-to-b from-[#1b1740] to-black py-20 px-6 text-white">
+      <h2 className="text-4xl font-bold text-center mb-12 text-purple-300">Projects</h2>
 
-        <Slider {...settings}>
-          {projectList.map((project, index) => (
-            <div key={index}>
-              <div className="bg-zinc-900 shadow-md rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start">
-
-                {/* 👇 Görsel kısmı (tek ya da çoklu) */}
-                <div className="w-full md:w-1/2">
-                  {project.images ? (
-                    <Slider {...settings}>
-                      {project.images.map((imgPath, i) => (
-                        <img
-                          key={i}
-                          src={imgPath}
-                          alt={`${project.title} screen ${i + 1}`}
-                          className="w-full max-h-[400px] object-contain rounded-lg shadow-md"
-                        />
-                      ))}
-                    </Slider>
-                  ) : (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full max-h-[400px] object-contain rounded-lg shadow-md"
-                    />
-                  )}
-                </div>
-
-                {/* 👇 Açıklama kısmı */}
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                  <p className="text-gray-300 mt-2 text-sm">{project.description}</p>
-
-                  <ul className="list-disc list-inside mt-3 text-gray-400 text-sm space-y-1">
-                    {project.features.map((feature, i) => (
-                      <li key={i}>{feature}</li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {project.technologies.map((tech, i) => (
-                      <span
-                        key={i}
-                        className="bg-blue-900 text-blue-200 px-3 py-1 rounded-full text-xs"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-                  >
-                    <FaGithub /> View GitHub README
-                  </a>
-                </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+        {projects.map((project, index) => (
+          <div key={index} className="text-center">
+            <div className="bg-[#1e1e1e] rounded-t-xl overflow-hidden shadow-2xl border border-gray-700 relative">
+              <div className="bg-gray-900 h-5 flex items-center px-3 text-xs text-gray-400 justify-between">
+                <span className="text-red-500">●</span>
+                <span className="text-yellow-500">●</span>
+                <span className="text-green-500">●</span>
               </div>
-            </div>
-          ))}
-        </Slider>
 
+              {/* Eğer slider varsa slider göster, yoksa normal resim */}
+              {project.sliderImages ? (
+                <Slider {...settings}>
+                  {project.sliderImages.map((img, i) => (
+                    <img key={i} src={img} alt={`slide-${i}`} className="w-full h-48 md:h-56 object-cover" />
+                  ))}
+                </Slider>
+              ) : (
+                <img src={project.image} alt={project.title} className="object-cover w-full h-48 md:h-56" />
+              )}
+            </div>
+
+            <h3 className="text-xl font-semibold mt-4">{project.title}</h3>
+            <p className="text-gray-300 mt-2 text-sm px-2">{project.description}</p>
+          </div>
+        ))}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

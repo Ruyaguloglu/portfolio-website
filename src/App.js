@@ -1,34 +1,35 @@
 import React from 'react';
-import './App.css';
+import { ThemeProvider } from "./context/ThemeContext"; //
+import Navbar from './components/Navbar';
+import Landing from './components/Landing';
+import About from './components/About';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import Navbar from './components/Navbar';
-import Landing from './components/Landing';
 import Contact from './components/Contact';
-
+import Footer from './components/Footer';
+import StarsBackground from './components/StarsBackground';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 function App() {
   return (
-    <div
-      className="App"
-      style={{
-        backgroundImage: "url('/Desktop.png')",
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
-        backgroundPosition: 'center top',
-        minHeight: '100vh',
-      }}
-    >
-      <Navbar />
-      <Landing />
-      <Education />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Contact /> {/* 👈 Eklemiş olduk */}
-    </div>
+    <ThemeProvider>
+      <div className="relative">
+        <StarsBackground />
+        <Navbar />
+        <main className="pt-24 space-y-24"> 
+          <Landing />
+          <About />
+          <Education />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

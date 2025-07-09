@@ -1,58 +1,73 @@
-// src/components/Landing.jsx
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Parallax } from 'react-scroll-parallax';
+import { Link } from "react-scroll";
+
 
 const Landing = () => {
   return (
-    <section
-      id="home"
-      className="relative w-full min-h-screen flex flex-col md:flex-row justify-between items-center px-6 md:px-20 pt-32"
-    >
-      {/* Sol Kısım */}
-      <div className="flex-1 text-left z-10">
-        <img 
-          src="/your-photo.png"
+    <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white px-4 relative overflow-hidden">
+      <motion.h2
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-3xl md:text-7xl font-gallery text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-blue-400 to-cyan-400 text-center z-10 mb-2"
+      >
+        Hello , welcome to my portfolio ! <br />
+        I'm
+      </motion.h2>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-6xl md:text-7xl font-gallery bg-gradient-to-r from-cyan-400 via-white to-purple-400 bg-[length:200%_auto] bg-clip-text text-transparent animate-shine text-center z-10"
+      >
+        RÜYA GÜLOĞLU
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="mt-6 text-lg md:text-xl text-center max-w-xl z-10"
+      >
+        Building the future through innovative technology solutions
+      </motion.p>
+
+      <motion.div
+        className="mt-8 flex gap-4 z-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+      >
+        <a
+          href="/Ruya-Guloglu-.pdf"
+          download
+          className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition"
+        >
+          Download My CV
+        </a>
+
+        <Link
+          to="contact"
+          smooth={true}
+          duration={800}
+          offset={-80} // navbar varsa kaydırma pozisyonunu düzeltmek için
+          className="px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg border hover:bg-gray-100 transition cursor-pointer"
+        >
+          Get In Touch
+        </Link>
+      </motion.div>
+
+      {/* 👇 Parallax Fotoğraf */}
+      <Parallax speed={-20}>
+        <img
+          src="/images/myphoto.png"
           alt="Rüya Güloğlu"
-          className="w-36 h-36 md:w-40 md:h-40 object-cover rounded-full border-4 border-white shadow-xl mb-6"
+          className="absolute bottom-0 w-72 md:w-96 opacity-90"
         />
-        <h2 className="text-xl font-bold text-[##3d455b]">Hello! I’m</h2>
-        <h1 className="text-6xl md:text-7xl font-extrabold text-[#ffffff]">Rüya</h1>
-        <h1 className="text-6xl md:text-7xl font-extrabold text-[#ffffff]">Güloğlu</h1>
-
-        <div className="mt-8 border-t border-[#1e55b3] w-3/4" />
-
-        <p className="mt-6 text-[#3d455b] text-xl font-semibold leading-relaxed">
-          <span className="block">Scroll To</span>
-          <span className="block">Reach</span>
-          <span className="block">My Portfolio</span>
-        </p>
-
-        <div className="mt-4 text-white text-4xl animate-bounce">↓</div>
-      </div>
-
-      {/* Sağ Kısım */}
-      <div className="flex-1 mt-10 md:mt-0 text-right z-10">
-        <p className="text-3xl font-extrabold text-white">
-          I do code<br />and
-          <br />
-          <span className="text-3xl font-extrabold text-white">create<br />impact!</span>
-        </p>
-
-        <div className="mt-10 flex flex-col items-end gap-4">
-          <a
-            href="#contact  "
-            className="border-2 border-white rounded-[30px] px-6 py-3 text-white font-semibold hover:bg-white hover:text-[#0d3b8a] transition"
-          >
-            Get In Touch
-          </a>
-          <a
-            href="/cv.pdf"
-            download
-            className="border-2 border-white rounded-[30px] px-6 py-3 text-white font-semibold hover:bg-white hover:text-[#0d3b8a] transition"
-          >
-            Download My CV
-          </a>
-        </div>
-      </div>
+      </Parallax>
     </section>
   );
 };
