@@ -42,7 +42,7 @@ const Landing = () => {
         transition={{ delay: 0.8 }}
       >
         <a
-          href="/Ruya-Guloglu-.pdf"
+          href="/cv.pdf"
           download
           className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition"
         >
