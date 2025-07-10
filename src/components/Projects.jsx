@@ -116,6 +116,7 @@ const categories = Object.entries(categoryCounts).map(([name, count]) => ({
   name,
   count,
 }));
+
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All works");
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -136,28 +137,26 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800 text-white">
       <header className="flex items-center justify-between p-6 bg-black bg-opacity-20 backdrop-blur-sm">
+        <div />
         <div className="flex items-center space-x-2">
-        </div>
-        <div className="flex items-center space-x-2">
-          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+          <div className="w-2 h-2 bg-green-400 rounded-full" />
           <span className="text-sm opacity-80">Currently available</span>
         </div>
-      
       </header>
 
-      <main className="px-6 py-12">
+      <main className="px-4 sm:px-6 py-12">
         <div className="max-w-7xl mx-auto mb-16">
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12">
             {getVisibleProjects().map((project) => (
-              <div key={project.id} className="group cursor-pointer">
+              <div key={project.id} className="group cursor-pointer w-full max-w-sm mx-auto">
                 <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-purple-500 transition-all duration-300 transform hover:scale-105">
                   <div className="relative overflow-hidden">
                     <img
                       src={project.images ? project.images[0] : project.image}
                       alt={project.title}
-                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-64 object-cover rounded-t-2xl group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 left-4 bg-purple-600 text-xs px-3 py-1 rounded-full">
                       {project.category}
                     </div>
@@ -200,8 +199,7 @@ const Portfolio = () => {
               <button
                 key={i}
                 onClick={() => setCurrentSlide(i)}
-                className={`w-3 h-3 rounded-full transition-all ${i === currentSlide ? 'bg-purple-500' : 'bg-gray-600'
-                  }`}
+                className={`w-3 h-3 rounded-full transition-all ${i === currentSlide ? 'bg-purple-500' : 'bg-gray-600'}`}
               />
             ))}
           </div>
@@ -213,8 +211,7 @@ const Portfolio = () => {
               <button
                 key={index}
                 onClick={() => setActiveCategory(category.name)}
-                className={`group text-center transition-all duration-300 hover:scale-105 ${activeCategory === category.name ? 'text-purple-300' : 'text-gray-300'
-                  }`}
+                className={`group text-center transition-all duration-300 hover:scale-105 ${activeCategory === category.name ? 'text-purple-300' : 'text-gray-300'}`}
               >
                 <div className="text-3xl font-bold mb-2 group-hover:text-purple-300 transition-colors">
                   {category.count}
@@ -223,11 +220,8 @@ const Portfolio = () => {
                   {category.name}
                 </div>
                 <div
-                  className={`h-1 w-full mt-2 rounded-full transition-all duration-300 ${activeCategory === category.name
-                    ? 'bg-purple-500'
-                    : 'bg-gray-600 group-hover:bg-purple-400'
-                    }`}
-                ></div>
+                  className={`h-1 w-full mt-2 rounded-full transition-all duration-300 ${activeCategory === category.name ? 'bg-purple-500' : 'bg-gray-600 group-hover:bg-purple-400'}`}
+                />
               </button>
             ))}
           </div>
@@ -235,9 +229,9 @@ const Portfolio = () => {
       </main>
 
       {/* Floating Decorative Elements */}
-      <div className="fixed top-1/4 left-10 w-4 h-4 bg-purple-400 rounded-full opacity-20 animate-pulse"></div>
-      <div className="fixed top-1/2 right-10 w-6 h-6 bg-blue-400 rounded-full opacity-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
-      <div className="fixed bottom-1/4 left-1/4 w-3 h-3 bg-pink-400 rounded-full opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <div className="fixed top-1/4 left-10 w-4 h-4 bg-purple-400 rounded-full opacity-20 animate-pulse" />
+      <div className="fixed top-1/2 right-10 w-6 h-6 bg-blue-400 rounded-full opacity-20 animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="fixed bottom-1/4 left-1/4 w-3 h-3 bg-pink-400 rounded-full opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
     </div>
   );
 };
